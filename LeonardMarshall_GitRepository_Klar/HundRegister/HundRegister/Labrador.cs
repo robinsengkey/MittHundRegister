@@ -10,6 +10,16 @@ class Labrador : Dog
 
     public override double GetTailLength()
     {
+        /*
+         * Robin:
+         * Onödig tilldelning av variabel, då tailLength skrivs över i varje if-sats
+         * hade räckt med något i stil med :
+         * 
+         * if(gender == "male)
+         *      return length - withers + 2;
+         * else
+         *      return length - withers;
+         */
         double tailLength = length - withers;
 
         if (gender == "male")

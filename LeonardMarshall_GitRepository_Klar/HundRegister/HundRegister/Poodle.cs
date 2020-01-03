@@ -18,6 +18,11 @@ class Poodle : Dog
         }
         else
         {
+            /*
+             * Robin:
+             * Hade räckt med att bara returnera tailLength här, då den redan är 
+             * satt till rätt värde.
+             */
             tailLength = age - length;
             return tailLength;
         }

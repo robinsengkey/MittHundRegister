@@ -54,7 +54,7 @@ class Program
     private void Printdoglist()                     // printar alla hundar
     {
         doglist.Sort();
-        foreach (Dog dog in doglist)                            
+        foreach (Dog dog in doglist)
         {
             Console.WriteLine(dog.GetAsString());
         }
@@ -79,14 +79,20 @@ class Program
             }
         }
     }
-   
+
+    /*
+     * Robin:
+     * Snygg metod! Ett problem är dock att det inte finns några begränsningar 
+     * för vad man skriva in som kön. Detta kan leda till problem när man beräknar
+     * svanslängden.
+     */
     private void AddDog()
     {
         HandleInput("Enter breed", out string breed);                                     //låter användaren skriva in en input som går igenom "HandelInput"
 
         if (breed.ToLower() == "poodle" || breed.ToLower() == "labrador" || breed.ToLower() == "weinerdog")  // om användaren skriver in någon av de 3 olika raserna så händer de under
         {
-            HandleInput("Enter name", out string name);                                  
+            HandleInput("Enter name", out string name);
             HandleInput("Enter age", out int age);
             HandleInput("Enter length", out int length);
             HandleInput("Enter withers", out int withers);
@@ -94,6 +100,11 @@ class Program
             HandleInput("Enter gender", out string gender);
 
             Dog dog = null; // nollställer dog
+
+            /*
+             * Robin:
+             * Hade blivit en liten optimering om du användt if följt av elseif. 
+             */
 
             if (breed.ToLower() == "poodle") //om användaren skrev in pudel
             {
@@ -110,6 +121,13 @@ class Program
                 dog = new WeinerDog(name, age, length, withers, weight, gender);
             }
 
+            /*
+             * Robin:
+             * Det hade nog räckt att istället för att sätta count++ bara skriva
+             * ut att hunden redan finns och sedan sätta en return. Då slipper du
+             * if-else satsen under for-loopen.
+             */
+
             int count = 0; // sätter variabeln count till 0
             foreach (Dog d in doglist) // för varje hund i listan...
             {
@@ -123,14 +141,14 @@ class Program
                 doglist.Add(dog); // lägger till hund
             }
             else // om count inte är 0 så händer...
-                Console.WriteLine("The dog you tried to add already exist");         
+                Console.WriteLine("The dog you tried to add already exist");
         }
         else // om man skrev något annat än de 3 raserna så...
         {
-         
+
             Console.WriteLine("Breed does not exist");
             return; // retunerar
-           
+
         }
     }
 
@@ -147,7 +165,7 @@ class Program
             }
             else if (userinput == "exit")
             {
-                running = false;                                                
+                running = false;
             }
             else if (userinput == "help")
             {
@@ -183,6 +201,21 @@ class Program
 
             string choice = Console.ReadLine();
 
+            /*
+             * Robin:
+             * Jag gillar lösningen här. Dock suhade du kunnat göra det något lättare för dig själv
+             * genom att direkt göra ändrningar på variabeln dog som du skickar in.
+             * Den enda gången du igentligen behöver veta hundens index är när du
+             * ändrar hundens ras. Jag rekommenderar att du läser på om referens och value
+             * types.
+             * 
+             * t.ex. 
+             * doglist[index].Age = name; 
+             * är samma sak som 
+             * dog.name = name;
+             * 
+             */
+
             switch (choice.ToLower()) // switch sats som låter en välja vad man ska redigera och sätter alla bokstäver till gemener.
             {
                 case "exit":
@@ -213,6 +246,23 @@ class Program
                     doglist[index].Weight = weight;
                     break;
                 case "breed":
+                    /*
+                     * Robin:
+                     * Snyggt! Dock så ändrar du inte vad som finns i variabeln dog
+                     * i EditDog() -metoden. Detta leder till att den fortfarande pekar på 
+                     * den gamla hunden. En snabb lösning hade varit att låta den här metoden
+                     * sätta doglist[index] = dog = new Labrador(...); och sedan returnera 
+                     * dog igen i slutet på denna metod. Du kan du lätt fånga upp det i 
+                     * EditDog med:
+                     * 
+                     *  if (userinput == "edit")
+                     *    dog = Edit(dog);
+                     *    
+                     * som det är nu så skriver den här metoden ut den gamla
+                     * hunden om man ändrar hundens ras, backar ut ett steg med "exit", och sedan
+                     * skriver "edit" igen. Inte ett stort problem, men värt att tänka på.
+                     */
+
                     HandleInput("What do you want to change it to?", out string breed);
                     if (breed.ToLower() == "labrador") //om rasen (i gemener) är labrador så läggs den ändringen till
                     {
@@ -330,7 +380,7 @@ class Program
     }
 
     #region HandleInput                                                             
-    private bool HandleInput(string message, out int input) 
+    private bool HandleInput(string message, out int input)
     {
         while (true) // medans HandleInput är true så
         {
@@ -368,3 +418,17 @@ class Program
 
     #endregion
 }
+
+/*
+ * Robin:
+ * 
+ * Ledsen att rättningen tog lite extra tid! 
+ * 
+ * Mycket bra Leonard! Snyggt strukturerat och god läsbarhet/namngivning med enstaka undantag. 
+ * Finns några små missar som kan leda till mindre problem, men inget stort vad
+ * jag kan hitta som skulle få programmet att krascha. Lite extra testning medan
+ * du skriver koden hade nog fått ut de små buggarna.
+ * 
+ * Jag gillar att du verkligen börjat arbeta bra på lektionerna, och tar för dig mer
+ * och ställer frågor! Fortsätt så!
+ */

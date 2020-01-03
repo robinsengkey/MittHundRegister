@@ -12,3 +12,9 @@ C:\Users\ajde jalla d e lelle\Desktop\LeonardMarshall_GitRepository_Klar\HundReg
 C:\Users\ajde jalla d e lelle\Desktop\LeonardMarshall_GitRepository_Klar\HundRegister\HundRegister\obj\Debug\HundRegister.csproj.CoreCompileInputs.cache
 C:\Users\ajde jalla d e lelle\Desktop\LeonardMarshall_GitRepository_Klar\HundRegister\HundRegister\obj\Debug\HundRegister.exe
 C:\Users\ajde jalla d e lelle\Desktop\LeonardMarshall_GitRepository_Klar\HundRegister\HundRegister\obj\Debug\HundRegister.pdb
+C:\Users\Robin\source\repos\PRRPRR02\Hundregister\Leonard\LeonardMarshall_GitRepository_Klar\HundRegister\HundRegister\bin\Debug\HundRegister.exe.config
+C:\Users\Robin\source\repos\PRRPRR02\Hundregister\Leonard\LeonardMarshall_GitRepository_Klar\HundRegister\HundRegister\bin\Debug\HundRegister.exe
+C:\Users\Robin\source\repos\PRRPRR02\Hundregister\Leonard\LeonardMarshall_GitRepository_Klar\HundRegister\HundRegister\bin\Debug\HundRegister.pdb
+C:\Users\Robin\source\repos\PRRPRR02\Hundregister\Leonard\LeonardMarshall_GitRepository_Klar\HundRegister\HundRegister\obj\Debug\HundRegister.csprojAssemblyReference.cache
+C:\Users\Robin\source\repos\PRRPRR02\Hundregister\Leonard\LeonardMarshall_GitRepository_Klar\HundRegister\HundRegister\obj\Debug\HundRegister.exe
+C:\Users\Robin\source\repos\PRRPRR02\Hundregister\Leonard\LeonardMarshall_GitRepository_Klar\HundRegister\HundRegister\obj\Debug\HundRegister.pdb
